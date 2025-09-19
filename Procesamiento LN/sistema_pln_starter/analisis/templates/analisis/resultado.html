@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado del Texto</title>
+</head>
+<body>
+    <h1>Resultado del Texto Analizado</h1>
+
+    <h2>Tokens:</h2>
+    <ul>
+        {% for token in tokens %}
+            <li>{{ token }}</li>
+        {% empty %}
+            <li>No hay tokens.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'lista_textos' %}">Volver a la lista de textos</a>
+</body>
+</html>

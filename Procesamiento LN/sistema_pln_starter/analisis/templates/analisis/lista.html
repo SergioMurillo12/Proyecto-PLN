@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Textos — {{ alumno }}</title>
+</head>
+<body>
+  <h1>Listado de Textos — {{ alumno }}</h1>
+
+  <p><a href="{% url 'subir_texto' %}">Subir nuevo texto</a></p>
+
+  {% if textos %}
+    <ul>
+      {% for t in textos %}
+        <li>
+          <strong>{{ t.titulo }}</strong>
+          — subido el {{ t.fecha_subida|date:"d/m/Y H:i" }}
+          — <a href="{{ t.archivo.url }}" download>descargar</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay textos cargados aún.</p>
+  {% endif %}
+</body>
+</html>
